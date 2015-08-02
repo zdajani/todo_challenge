@@ -39,13 +39,26 @@ describe('To Do Task List', function() {
     
     expect(element(by.binding('task')).getText()).
         toContain('Buy Water');
-    
   });
   
-  it('can delete tasks', function() {
+  it('can delete individual tasks', function() {
     delTaskBtn.click();
     
     expect(element.all(by.repeater('task in toDoCtrl.taskList')).count()).toEqual(0);
+  });
+  
+  it('shows number of tasks', function() {
+    expect(element(by.id('taskCount')).getText()).toContain('1');
+  });
+  
+  
+  it('can delete all completed tasks', function (){
+    element(by.model('task.completed')).click();
+    addTaskBox.sendKeys('Buy Cat Food');
+    addTaskBtn.click();
+    
+    element(by.id('delCompletedTasks-btn')).click();
+    expect(element.all(by.repeater('task in toDoCtrl.taskList')).count()).toEqual(1);
   });
   
   describe('can filter tasks', function(){

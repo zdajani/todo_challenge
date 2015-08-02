@@ -14,4 +14,14 @@ toDoList.controller('ToDoListController', [function(){
     self.taskList.splice(index, 1);
   };
   
+  self.deleteAllTasks = function() {
+    self.taskList = [];
+  };
+  
+
+  self.deleteCompletedTasks = function () {
+    self.taskList = self.taskList.filter(function(item) {
+      return item.completed === false;
+    });
+  };
 }]);

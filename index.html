@@ -6,6 +6,7 @@
     <script src="bower_components/jquery/dist/jquery.js"></script>
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
     <link href="bower_components/angular-xeditable/dist/css/xeditable.css" rel="stylesheet">
+    <link href="public/stylesheets/style.css" rel="stylesheet">
     <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/angular-resource/angular-resource.js"></script>  
     <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
@@ -17,19 +18,19 @@
 
   <body ng-controller="ToDoListController as toDoCtrl">
     <div>
-      <form class="form-horizontal">
-        <input id='newTask' type="text" ng-model="toDoCtrl.newTask">
-        <button class="btn btn-default" id="addTask" ng-click="toDoCtrl.addTask()">Add Task</button>
+      <form class="form-horizontal" id="addTask" ng-submit="toDoCtrl.addTask()">
+        <input id='newTask' type="text" ng-model="toDoCtrl.newTask" placeholder="What Needs to be Done?">
+        <!-- <button class="btn btn-default" id="addTask" ng-click="toDoCtrl.addTask()">Add Task</button> -->
       </form>
       
-      <table class="table table-bordered table-hover table-condensed">
+      <table class="table table-bordered table-hover table-condensed table-striped">
         <tr style="font-weight: bold">
-          <td style="width:35%">Task</td>
+          <td style="width:25%" class="primary">Task</td>
           <td style="width:25%">Completed</td>
           <td style="width:25%">Edit</td>
         </tr>
         <tr ng-repeat="task in toDoCtrl.taskList| filter:filterGroup | orderBy: '-completed' : 'reverse'">
-          <td class="strikethrough">
+          <td> 
             <input type="checkbox" ng-model="task.completed">
             <span id='editBox' editable-text="task.description" e-name="description" e-form="rowform">
               {{task.description || 'empty'}}
@@ -62,11 +63,11 @@
       <div id="taskCount"> Tasks Left: {{remainingTasks.length}} </div>
     
       
-      <button class="btn btn-default"  id='activeFilter-btn' ng-click="filterGroup = {completed:false}">Active Tasks</button>
-      <button class="btn btn-default" id='completedFilter-btn' ng-click="filterGroup = {completed:true}">Completed Tasks</button>
-      <button class="btn btn-default"  id='noFilter-btn' ng-click="filterGroup = none">All Tasks</button>
-      <button class="btn btn-default" id='delAllTasks' ng-click="toDoCtrl.deleteAllTasks()">Delete All Tasks</button>
-      <button class="btn btn-default" id='delCompletedTasks-btn' ng-click="toDoCtrl.deleteCompletedTasks()">Delete completed Tasks</button>
+      <button class="btn btn-primary"  id='activeFilter-btn' ng-click="filterGroup = {completed:false}">Active Tasks</button>
+      <button class="btn btn-success" id='completedFilter-btn' ng-click="filterGroup = {completed:true}">Completed Tasks</button>
+      <button class="btn btn-info"  id='noFilter-btn' ng-click="filterGroup = none">All Tasks</button>
+      <button class="btn btn-warning" id='delCompletedTasks-btn' ng-click="toDoCtrl.deleteCompletedTasks()">Delete completed Tasks</button>
+      <button class="btn btn-danger" id='delAllTasks' ng-click="toDoCtrl.deleteAllTasks()">Delete All Tasks</button>
     </div>
   </body>
 </html>

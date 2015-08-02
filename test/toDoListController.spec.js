@@ -11,20 +11,6 @@ describe('ToDoListController', function() {
      expect(ctrl.taskList).toEqual([]);
   });
   
-  it('can delete all tasks', function(){
-    ctrl.taskList = [{'description': 'Buy food', 'completed': false}, {'description': 'Buy water', 'completed': false}];
-    
-    ctrl.deleteAllTasks();
-    expect(ctrl.taskList).toEqual([]);
-  });
-  
-  it('can delete completed tasks', function(){
-    ctrl.taskList = [{'description': 'Buy food', 'completed': false}, {'description': 'Buy water', 'completed': true}];
-    
-    ctrl.deleteCompletedTasks();
-      expect(ctrl.taskList).toEqual([{'description': 'Buy food', 'completed': false}]);
-  });
-  
   describe('adding and deleting tasks', function(){
 
     beforeEach(function(){
@@ -44,7 +30,18 @@ describe('ToDoListController', function() {
       ctrl.removeTask();
       expect(ctrl.taskList).toEqual([]);
     });
-
+  });
+  
+  it('can delete all tasks', function(){
+    ctrl.taskList = [{'description': 'Buy food', 'completed': false}, {'description': 'Buy water', 'completed': false}];
+    ctrl.deleteAllTasks();
+    expect(ctrl.taskList).toEqual([]);
+  });
+  
+  it('can delete completed tasks', function(){
+    ctrl.taskList = [{'description': 'Buy food', 'completed': false}, {'description': 'Buy water', 'completed': true}];
+    ctrl.deleteCompletedTasks();
+    expect(ctrl.taskList).toEqual([{'description': 'Buy food', 'completed': false}]);
   });
 });
   

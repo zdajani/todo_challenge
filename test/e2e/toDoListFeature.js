@@ -1,6 +1,6 @@
 describe('To Do Task List', function() {
   
-  var addTaskBox = element(by.id('newTask'));
+  var addTaskBox = element(by.model('toDoCtrl.newTask'));
   var addTaskBtn = element(by.id('addTask'));
   var editTaskBtn = element(by.id('editTask'));
   var editTaskBox = element(by.className('editable-input'));
@@ -10,7 +10,7 @@ describe('To Do Task List', function() {
   beforeEach(function() {
     browser.get('http://localhost:8080');
     addTaskBox.sendKeys('Buy Water');
-    addTaskBtn.click();
+    addTaskBtn.submit();
   });
   
   it('has a title', function() {

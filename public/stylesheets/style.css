@@ -1,0 +1,21 @@
+form#addTask {
+    margin-bottom: 1em;
+    margin-top: 1em;
+    display: block;
+}
+
+input#newTask {
+    width: 300px;
+    height: 35px;
+    position: relative;
+}
+
+.table {
+  width: 75%;
+  max-width: 100;
+  margin-bottom: 20px;
+}
+
+div#taskCount {
+    margin-bottom: 1em;
+}

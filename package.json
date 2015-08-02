@@ -1,0 +1,30 @@
+{
+  "name": "todo_challenge",
+  "version": "1.0.0",
+  "description": "To Do List",
+  "main": "index.js",
+  "scripts": {
+    "test": "node node_modules/karma/bin/karma start test/karma.conf.js",
+    "test-single-run": "node node_modules/karma/bin/karma start test/karma.conf.js  --single-run",
+    "preprotractor": "npm run update-webdriver",
+    "protractor": "protractor test/protractor-conf.js"
+  },
+  "author": "zdajani",
+  "license": "ISC",
+  "devDependencies": {
+    "jquery": "^2.1.4",
+    "angular-ui-bootstrap": "^0.13.1",
+    "jasmine-core": "^2.3.4",
+    "karma": "^0.13.3",
+    "karma-chrome-launcher": "^0.2.0",
+    "karma-jasmine": "^0.3.6",
+    "karma-phantomjs-launcher": "^0.2.0",
+    "karma-requirejs": "^0.2.2",
+    "phantomjs": "^1.9.17",
+    "protractor": "^2.1.0",
+    "requirejs": "^2.1.20"
+  },
+  "dependencies": {
+    "http-server": "^0.8.0"
+  }
+}

@@ -31,13 +31,14 @@
         </tr>
         <tr ng-repeat="task in toDoCtrl.taskList| filter:filterGroup | orderBy: '-completed' : 'reverse'">
           <td> 
-            <input type="checkbox" ng-model="task.completed">
+            <input type="checkbox" ng-model="task.completed" aria-label="Toggle ngHide">
             <span id='editBox' editable-text="task.description" e-name="description" e-form="rowform">
               {{task.description || 'empty'}}
             </span>
           </td>
-          <td>
-            {{task.completed}}
+          <td> 
+            <span class="glyphicon glyphicon-ok" ng-show="task.completed"></span>
+            <span class="glyphicon glyphicon-remove" ng-hide="task.completed"></span>
           </td>
           <td style="white-spave: nowrap">
             <form editable-form name="rowform" ng-show="rowform.$visible" class="form-buttons form-inline" shown="newTask == task">

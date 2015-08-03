@@ -24,7 +24,7 @@ describe('To Do Task List', function() {
   
   it('adds mutliple tasks', function() {
     addTaskBox.sendKeys('Buy Food');
-    addTaskBtn.click();
+    addTaskBtn.submit();
     
     var tasks = element.all(by.repeater('task in toDoCtrl.taskList'));
     expect(tasks.get(0).getText()).toContain("Buy Water");
@@ -55,7 +55,7 @@ describe('To Do Task List', function() {
   it('can delete all completed tasks', function (){
     element(by.model('task.completed')).click();
     addTaskBox.sendKeys('Buy Cat Food');
-    addTaskBtn.click();
+    addTaskBtn.submit();
     
     element(by.id('delCompletedTasks-btn')).click();
     expect(element.all(by.repeater('task in toDoCtrl.taskList')).count()).toEqual(1);

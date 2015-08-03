@@ -8,7 +8,7 @@ describe('To Do Task List', function() {
   var delTaskBtn= element(by.id('removeTask-btn'));
   
   beforeEach(function() {
-    browser.get('http://localhost:8080');
+    browser.get('http://localhost:3000');
     addTaskBox.sendKeys('Buy Water');
     addTaskBtn.submit();
   });
